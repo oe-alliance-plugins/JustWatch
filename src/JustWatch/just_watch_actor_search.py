@@ -1,6 +1,6 @@
+from Screens.Screen import Screen
 import os
 
-from Screens.Screen import Screen
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import NumberActionMap
 from Components.Label import Label
@@ -8,10 +8,10 @@ from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.config import config
 from enigma import ePicLoad, gFont, eTimer, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, RT_WRAP
-from twisted.web.client import downloadPage
+    getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, \
+    RT_VALIGN_CENTER, RT_WRAP
 
-from .justWatch import *
+from .justWatch import download_file, get_poster_url, get_title
 from .just_watch_spinner import JustWatchSpinner
 from .__init__ import _
 
@@ -327,7 +327,7 @@ def load_pic_scale(pic, pwidth, pheight, color):
     picload.setPara((pwidth, pheight, scale[0], scale[1], False, 1, color))
     if not picload.startDecode(pic, 0, 0, False):
         ptr = picload.getData()
-        if ptr != None:
+        if ptr is not None:
             del picload
             return ptr
 

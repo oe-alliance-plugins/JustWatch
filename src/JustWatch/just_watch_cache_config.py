@@ -1,4 +1,3 @@
-from Screens.Screen import Screen
 import os
 import re
 from Screens.MessageBox import MessageBox
@@ -7,10 +6,9 @@ from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.config import config, configfile
 from Screens.Screen import Screen
-from Components.FileList import FileList, FileEntryComponent
-from enigma import ePicLoad, gFont, eServiceReference, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_WRAP, RT_HALIGN_RIGHT
+from Components.FileList import FileList
+from enigma import gFont, getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, \
+    RT_VALIGN_CENTER, RT_HALIGN_RIGHT
 
 from .__init__ import _
 
@@ -217,7 +215,7 @@ def get_free_flash(path):
                 free_flash) + "MB"
         else:
             free_flash = "free: N/A"
-    except:
+    except Exception:
         free_flash = "free: N/A"
     return free_flash
 
@@ -233,7 +231,7 @@ def get_cache_info(path):
                 break
         fd.close()
         cache_size = cache_info if cache_info else None
-    except:
+    except Exception:
         cache_size = None
     try:
         cover_info = None
@@ -243,7 +241,7 @@ def get_cache_info(path):
             cover_info = result[0]
         fd.close()
         cover_size = cover_info if cover_info else None
-    except:
+    except Exception:
         cover_size = None
     try:
         flash_info = None
@@ -257,7 +255,7 @@ def get_cache_info(path):
         free = int(flash_info) if flash_info else None
         if free:
             free = str(int(free / 1000)) + "GB" if free / 1000 >= 1 else str(free) + "MB"
-    except:
+    except Exception:
         free = None
     info = ""
     if cover_size:

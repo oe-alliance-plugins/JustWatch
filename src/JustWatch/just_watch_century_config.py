@@ -2,11 +2,9 @@ from Components.MenuList import MenuList
 from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
 from Components.MultiContent import MultiContentEntryText
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP
+from enigma import gFont, getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, \
+    RT_VALIGN_CENTER
 import math
-from .__init__ import _
 
 SCROLLBARBACKCOLOR = 0x545a5f
 SCROLLBARSLIDERCOLOR = 0xcac253

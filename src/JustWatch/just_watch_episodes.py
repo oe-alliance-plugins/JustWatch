@@ -1,4 +1,3 @@
-from Screens.Screen import Screen
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import NumberActionMap
 from Components.Label import Label
@@ -9,9 +8,9 @@ from Components.Renderer.JustWatchVRunningText import JustWatchVRunningText
 from Components.config import config, configfile
 from Screens.Screen import Screen
 from Tools.LoadPixmap import LoadPixmap
-from enigma import ePicLoad, gFont, eServiceReference, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_WRAP
+from enigma import ePicLoad, gFont, gPixmapPtr, \
+    getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, \
+    RT_VALIGN_CENTER
 
 from .justWatch import *
 from .just_watch_episodes_helper import EpisodesList
