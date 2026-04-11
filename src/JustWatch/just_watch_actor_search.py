@@ -1,16 +1,14 @@
-from Screens.Screen import Screen
 import os
 
+from Screens.Screen import Screen
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import NumberActionMap
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
-from Components.config import config, configfile
-from Screens.Screen import Screen
-from enigma import ePicLoad, gFont, eServiceReference, gPixmapPtr, eTimer, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_WRAP
+from Components.config import config
+from enigma import ePicLoad, gFont, eTimer, \
+    getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, RT_WRAP
 from twisted.web.client import downloadPage
 
 from .justWatch import *

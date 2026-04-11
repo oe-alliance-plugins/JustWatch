@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime, timedelta
+from datetime import datetime
 import json
 import os
 import re
@@ -75,7 +75,7 @@ GENRE_LABELS = {
     'act': 'Action & Adventure', 'ani': 'Animation', 'cmy': 'Comedy', 'crm': 'Crime', 'doc': 'Documentary',
     'drm': 'Drama', 'fml': 'Family', 'fnt': 'Fantasy', 'hst': 'History', 'hrr': 'Horror', 'msc': 'Music',
     'rly': 'Reality TV', 'rma': 'Romance', 'scf': 'Science-Fiction', 'spt': 'Sport', 'thr': 'Thriller',
-    'war': 'War', 'wsn': 'Western', 'eur': 'Made in Europe', 'kids': 'Kids', 'spt': 'Sport'
+    'war': 'War', 'wsn': 'Western', 'eur': 'Made in Europe', 'kids': 'Kids'
 }
 
 

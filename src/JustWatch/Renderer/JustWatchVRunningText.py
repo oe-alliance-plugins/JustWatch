@@ -52,7 +52,7 @@ class JustWatchVRunningText(Renderer):
         self.__timer_conn = None
         try:
             self.__timer_conn = self.__timer.timeout.connect(self.movingLoop)
-        except:
+        except Exception:
             self.__timer.callback.append(self.movingLoop)
 
     def preWidgetRemove(self, instance):
@@ -68,7 +68,7 @@ class JustWatchVRunningText(Renderer):
                     x = min(limit, int(val))
                 else:
                     x = max(limit, int(val))
-            except:
+            except Exception:
                 x = default
             return x
 
@@ -249,7 +249,7 @@ class JustWatchVRunningText(Renderer):
                     self.mStep = abs(self.mStep)
                     self.mStop = self.B - text_width + self.soffset[0] - self.mStep
                     self.P = self.A
-                if not self.mStartPoint is None:
+                if self.mStartPoint is not None:
                     if self.direction == LEFT:
                         self.mStop = self.P = max(self.A, min(self.W, self.mStartPoint))
                     else:
@@ -297,7 +297,7 @@ class JustWatchVRunningText(Renderer):
                     self.mStep = abs(self.mStep)
                     self.mStop = self.B - text_height + self.soffset[1] - self.mStep
                     self.P = self.A
-                if not self.mStartPoint is None:
+                if self.mStartPoint is not None:
                     if self.direction == TOP:
                         self.mStop = self.P = max(self.A, min(self.H, self.mStartPoint))
                     else:
