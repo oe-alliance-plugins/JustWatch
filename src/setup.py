@@ -7,6 +7,6 @@ setup(name='enigma2-plugin-extensions-justwatch',
        description='JustWatch streaming search for Enigma2',
        package_dir={pkg: 'JustWatch'},
        packages=[pkg],
-       package_data={pkg: ['images/search/1920/*.png', 'images/search/1280/*.png', 'images/country/*.png', 'images/spinner/*.png', 'images/*.png', '*.png', '*.xml', 'locale/*/LC_MESSAGES/*.mo']},
+       package_data={pkg: ['images/search/1920/*.png', 'images/search/1280/*.png', 'images/country/*.png', 'images/spinner/*.png', 'images/*.png', '*.png', '*.xml', 'locale/*/LC_MESSAGES/*.mo', 'font/OpenSans-Regular.ttf']},
        cmdclass=setup_translate.cmdclass,  # for translation
       )
