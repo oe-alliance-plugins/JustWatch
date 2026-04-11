@@ -491,36 +491,7 @@ class JustWatchSeriesScreen(Screen, JustWatchSpinner):
                                   type=MessageBox.TYPE_INFO)
             self.build_content()
         elif 2 <= self.gui_mode <= 4:
-            if self.gui_mode == 2:
-                item = "flatrate"
-            elif self.gui_mode == 3:
-                item = "rent"
-            else:
-                item = "buy"
-            data = self.content_stream_list[self.content_list_select][item]
-            if data:
-                (presentation_type, icon_destination, season_num, technical_name, title_id) = self.content_stream_list[self.content_list_select][item][self.content_stream_index]
-                if "amazon" in technical_name and title_id:
-                    if self.amazon.getIsLogin():
-                        self.startJustWatchSpinner()
-                        self.amazon.getItemDetails("amazon", title_id, self.cbReceivedWatchlistMode)
-                    else:
-                        self.session.open(MessageBox, windowTitle="JustWatch Amazon", text=_("Login failed"),
-                                          type=MessageBox.TYPE_ERROR)
-                elif "netflix" in technical_name and title_id:
-                    if self.netflix.getIsLogin():
-                        self.startJustWatchSpinner()
-                        self.netflix.getProfileMode(technical_name, title_id, "show", self.cbReceivedWatchlistMode)
-                    else:
-                        self.session.open(MessageBox, windowTitle="JustWatch Netflix", text=_("Login failed"),
-                                          type=MessageBox.TYPE_ERROR)
-                elif "disneyplus" in technical_name and title_id:
-                    if self.disney.getIsLogin():
-                        self.startJustWatchSpinner()
-                        self.disney.getProfiles(title_id, "show", self.cbReceivedWatchlistMode)
-                    else:
-                        self.session.open(MessageBox, windowTitle="JustWatch Disney+", text=_("Login failed"),
-                                          type=MessageBox.TYPE_ERROR)
+            return
         elif self.gui_mode == 5:
             self.startJustWatchSpinner()
             season_backend_id = self.season_list[self.season_index][4] if len(self.season_list[self.season_index]) > 4 else self.season_list[self.season_index][1]

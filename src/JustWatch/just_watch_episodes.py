@@ -126,9 +126,10 @@ class JustWatchEpisodesScreen(Screen, EpisodesList):
         self.content_stream_index = 0
         self.episode_index = 0
 
-        self.gui_mode = 0
+        self.gui_mode = 4
 
         self.onLayoutFinish.append(self.build_gui)
+        self.onLayoutFinish.append(self.do_show_gui_mode)
         self.onLayoutFinish.append(self.show_cover)
 
     def do_show_gui_mode(self):
