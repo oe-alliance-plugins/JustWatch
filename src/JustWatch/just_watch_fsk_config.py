@@ -2,7 +2,7 @@ from Components.MenuList import MenuList
 from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
 from Components.MultiContent import MultiContentEntryText
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr,\
+from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
     getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
     RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP
 
@@ -100,4 +100,3 @@ def fsk_config_gui_entry(entry):
                                      text=entry[0]))
 
     return res
-

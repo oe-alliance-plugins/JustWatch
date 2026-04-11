@@ -9,7 +9,7 @@ from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaBlend, MultiContentEntryPixmapAlphaTest
 from Components.config import config, ConfigText, ConfigSubsection, configfile, ConfigPassword, ConfigYesNo, ConfigSubList
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr,\
+from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
     getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
     RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, getPrevAsciiCode, eTimer, eLabel
 
@@ -93,55 +93,55 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
     def __init__(self, session):
         if DESKTOPSIZE.width() >= 1920:
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatch" position="center,center" size="1920,1080" title="JustWatch">
-                           <ePixmap name="JustWatchLogo" position="40,10" size="296,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_296x70.png" zPosition="1" />  
-                           <widget name="JustWatchHomeText" position="610,10" size="700,70" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 46" valign="center" halign="center"/>                  
-                           <ePixmap name="JustWatchMenu" position="1820,20" size="60,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_menu_60x50.png" zPosition="1" />     
+                           <ePixmap name="JustWatchLogo" position="40,10" size="296,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_296x70.png" zPosition="1" />
+                           <widget name="JustWatchHomeText" position="610,10" size="700,70" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 46" valign="center" halign="center"/>
+                           <ePixmap name="JustWatchMenu" position="1820,20" size="60,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_menu_60x50.png" zPosition="1" />
                            <!-- Provider -->
                            <eLabel name="background" position="0,100" size="1920,250" backgroundColor="#001a2632" transparent="0" zPosition="1" />
                            <widget name="JustWatchProvider" position="40,100" size="1840,110" backgroundColor="#001a2632" zPosition="2" transparent="1" enableWrapAround="1" />
-                           <widget name="BackgroundProviderConfig" position="600,10" size="740,1050" backgroundColor="#001a2632" transparent="0" zPosition="4" />               
-                           <widget name="ProviderConfigText" position="610,15" size="700,60" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="5" font="JW; 46" valign="center" halign="left"/>                  
+                           <widget name="BackgroundProviderConfig" position="600,10" size="740,1050" backgroundColor="#001a2632" transparent="0" zPosition="4" />
+                           <widget name="ProviderConfigText" position="610,15" size="700,60" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="5" font="JW; 46" valign="center" halign="left"/>
                            <widget name="JustWatchProviderConfig" position="610,80" size="700,960" backgroundColorSelected="#001b1e25" foregroundColorSelected="#00ffffff" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="5" transparent="0" enableWrapAround="1" />
                            <widget name="MyScrollBarProvider" position="1310,80" size="20,960" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="960" />
                            <!-- Content -->
-                           <widget name="JustWatchContentType" position="40,225" size="1840,50" backgroundColor="#001a2632" zPosition="2" transparent="1" enableWrapAround="1" /> 
+                           <widget name="JustWatchContentType" position="40,225" size="1840,50" backgroundColor="#001a2632" zPosition="2" transparent="1" enableWrapAround="1" />
                            <!-- Settings -->
-                           <widget name="BackgroundSettingsConfig" position="600,10" size="740,1050" backgroundColor="#001a2632" transparent="0" zPosition="4" />               
-                           <widget name="SettingsText" position="610,15" size="700,60" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="5" font="JW; 46" valign="center" halign="left"/>                  
+                           <widget name="BackgroundSettingsConfig" position="600,10" size="740,1050" backgroundColor="#001a2632" transparent="0" zPosition="4" />
+                           <widget name="SettingsText" position="610,15" size="700,60" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="5" font="JW; 46" valign="center" halign="left"/>
                            <widget name="JustWatchSettingsConfig" position="610,80" size="700,960" backgroundColorSelected="#001b1e25" foregroundColorSelected="#00ffffff" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="5" transparent="0" enableWrapAround="1" />
                            <widget name="MyScrollbarConfig" position="1310,80" size="20,960" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="960" />
                            <!-- Country -->
-                           <widget name="BackgroundCountryConfig" position="600,10" size="740,1050" backgroundColor="#001a2632" transparent="0" zPosition="4" />               
-                           <widget name="CountryText" position="610,15" size="700,60" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="5" font="JW; 46" valign="center" halign="left"/>                  
+                           <widget name="BackgroundCountryConfig" position="600,10" size="740,1050" backgroundColor="#001a2632" transparent="0" zPosition="4" />
+                           <widget name="CountryText" position="610,15" size="700,60" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="5" font="JW; 46" valign="center" halign="left"/>
                            <widget name="JustWatchCountryConfig" position="610,80" size="700,960" backgroundColorSelected="#001b1e25" foregroundColorSelected="#00ffffff" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="5" transparent="0" enableWrapAround="1" />
                            <widget name="MyScrollbarCountryConfig" position="1310,80" size="20,960" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="960" />
                            <!-- Century -->
-                           <widget name="BackgroundCenturyConfig" position="540,290" size="740,680" backgroundColor="#001a2632" transparent="0" zPosition="4" />               
+                           <widget name="BackgroundCenturyConfig" position="540,290" size="740,680" backgroundColor="#001a2632" transparent="0" zPosition="4" />
                            <widget name="JustWatchCenturyConfig" position="555,300" size="700,660" backgroundColorSelected="#001b1e25" foregroundColorSelected="#00ffffff" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="5" transparent="0" enableWrapAround="1" />
                            <widget name="MyScrollBarCentury" position="1255,300" size="20,660" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="660" />
                            <!-- Genre -->
-                           <widget name="BackgroundGenreConfig" position="705,290" size="740,680" backgroundColor="#001a2632" transparent="0" zPosition="4" />               
+                           <widget name="BackgroundGenreConfig" position="705,290" size="740,680" backgroundColor="#001a2632" transparent="0" zPosition="4" />
                            <widget name="JustWatchGenreConfig" position="715,300" size="700,660" backgroundColorSelected="#001b1e25" foregroundColorSelected="#00ffffff" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="5" transparent="0" enableWrapAround="1" />
                            <widget name="MyScrollBarGenre" position="1415,300" size="20,660" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="660" />
                            <!-- FSK -->
-                           <widget name="BackgroundFskConfig" position="870,290" size="370,320" backgroundColor="#001a2632" transparent="0" zPosition="4" />               
+                           <widget name="BackgroundFskConfig" position="870,290" size="370,320" backgroundColor="#001a2632" transparent="0" zPosition="4" />
                            <widget name="JustWatchFskConfig" position="880,300" size="350,300" backgroundColorSelected="#001b1e25" foregroundColorSelected="#00ffffff" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="5" transparent="0" enableWrapAround="1" />
                            <!-- Search -->
-                           <ePixmap name="JustWatchSearch" position="40,290" size="976,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/search_975x50.png" zPosition="2" />  
-                           <widget name="JustWatchSearchSelect" position="40,290" size="976,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/search_select_975x50.png" zPosition="3" />  
+                           <ePixmap name="JustWatchSearch" position="40,290" size="976,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/search_975x50.png" zPosition="2" />
+                           <widget name="JustWatchSearchSelect" position="40,290" size="976,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/search_select_975x50.png" zPosition="3" />
                            <widget name="text" position="110,295" size="900,40" backgroundColor="#001a2632" foregroundColor="#00545a5f" zPosition="4" font="JW; 28" noWrap="1" valign="center" halign="left" />
-                           <widget name="BackgroundSearch" position="532,580" size="856,390" backgroundColor="#001a2632" transparent="0" zPosition="5" />               
+                           <widget name="BackgroundSearch" position="532,580" size="856,390" backgroundColor="#001a2632" transparent="0" zPosition="5" />
                            <widget name="list" position="552,600" size="816,350" backgroundColor="#001a2632" foregroundColor="#00ffffff" selectionDisabled="1" transparent="1" zPosition="6" />
                            <!-- Watchlist -->
-                           <ePixmap name="JustWatchWatchlist" position="1630,290" size="250,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/watchlist_background_250x50.png" zPosition="3" />  
+                           <ePixmap name="JustWatchWatchlist" position="1630,290" size="250,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/watchlist_background_250x50.png" zPosition="3" />
                            <widget name="JustWatchWatchlistText" position="1637,295" size="180,40" backgroundColor="#001a2632" foregroundColor="#00545a5f" zPosition="4" font="JW; 28" noWrap="1" valign="center" halign="left" />
-                           <widget name="JustWatchWatchlistSelect" position="1630,290" size="250,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/watchlist_select_250x50.png" zPosition="4" />  
+                           <widget name="JustWatchWatchlistSelect" position="1630,290" size="250,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/watchlist_select_250x50.png" zPosition="4" />
                            <!-- Cover Gui -->
-                           <widget name="JustWatchItemText" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 28" valign="center" halign="center"/>                  
-                           <widget name="JustWatchSelectCover" position="40,420" size="1880,670" backgroundColor="#001b1e25" zPosition="2" transparent="1" enableWrapAround="1" />   
+                           <widget name="JustWatchItemText" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 28" valign="center" halign="center"/>
+                           <widget name="JustWatchSelectCover" position="40,420" size="1880,670" backgroundColor="#001b1e25" zPosition="2" transparent="1" enableWrapAround="1" />
                            <widget name="JustWatchCover" position="40,420" size="1880,670" backgroundColor="#001b1e25" zPosition="3" transparent="1" enableWrapAround="1" />
                            <!-- Spinner -->
-                           <widget name="BackgroundSpinner" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="0" zPosition="98" />               
+                           <widget name="BackgroundSpinner" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="0" zPosition="98" />
                            <widget name="JustWatchSpinner" position="925,350" size="70,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/spinner/1.png" alphatest="blend" zPosition="99" />
                            </screen>
                         """
@@ -195,7 +195,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
                            <widget name="JustWatchSelectCover" position="26,280" size="1253,446" backgroundColor="#001b1e25" zPosition="2" transparent="1" enableWrapAround="1" />
                            <widget name="JustWatchCover" position="26,280" size="1253,446" backgroundColor="#001b1e25" zPosition="3" transparent="1" enableWrapAround="1" />
                            <!-- Spinner -->
-                           <widget name="BackgroundSpinner" position="306,246" size="666,28" backgroundColor="#001b1e25" transparent="0" zPosition="98" />               
+                           <widget name="BackgroundSpinner" position="306,246" size="666,28" backgroundColor="#001b1e25" transparent="0" zPosition="98" />
                            <widget name="JustWatchSpinner" position="616,233" size="46,46" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/spinner/1.png" alphatest="blend" zPosition="99" />
                            </screen>
                         """
@@ -325,7 +325,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
     def do_import_providers(self):
         self.providers_data = get_providers()
         self.createSetup()
-    
+
     def createSetup(self):
         self.updateContentTypeList()
         if self.providers_data:
@@ -427,7 +427,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
         self.downloadPicList()
 
     def updateProviderList(self, callback=None):
-        data = [self.providers_gui_index, self.providers_gui_data,  self.gui_mode]
+        data = [self.providers_gui_index, self.providers_gui_data, self.gui_mode]
         self.chooseJustWatchProviderList.setList(list(map(provider_gui_entry, [data])))
         self.chooseJustWatchProviderList.selectionEnabled(0)
 
@@ -1234,8 +1234,6 @@ def setDownloadListCover(coverList):
         x = len(coverList) - 1
         downloadListe.append((0, x, coverList))
     return downloadListe
-
-
 
 
 def exit(session, result):

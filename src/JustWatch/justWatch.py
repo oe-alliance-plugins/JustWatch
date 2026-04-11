@@ -22,12 +22,14 @@ ICON_URL = 'https://images.justwatch.com'
 WATCHLIST = '/etc/enigma2/justWatch/justWatch.json'
 DEBUG_LOG = '/tmp/justwatch-debug.log'
 
+
 def debug_log(message):
     try:
         with open(DEBUG_LOG, 'a', encoding='utf-8') as handle:
             handle.write('%s %s\n' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), str(message)))
     except Exception:
         pass
+
 
 def log_exception(prefix):
     debug_log('%s\n%s' % (prefix, traceback.format_exc()))
@@ -36,6 +38,7 @@ def log_exception(prefix):
 def jw_debug(message):
     debug_log(message)
 
+
 COUNTRY_CODE = {
     'COP': '$', 'USD': 'US$', 'AUD': 'A$', 'TWD': 'NT$', 'IDR': 'Rp.', 'KRW': '₩', 'BGN': 'Lw',
     'TRY': 'TL, ₺; ', 'ARS': 'arg$', 'GBP': '£', 'NZD': 'NZ$', 'THB': '฿', 'EUR': '€', 'MXN': 'mex$',
@@ -43,7 +46,6 @@ COUNTRY_CODE = {
     'INR': 'iR, ₹', 'DKK': 'dkr', 'JPY': '¥', 'CZK': 'Kč', 'BRL': 'R$', 'CAD': 'kan$', 'PLN': 'zł',
     'PHP': '₱', 'SEK': 'Skr', 'SGD': 'S$', 'HKD': 'HK$'
 }
-
 
 
 COUNTRY_LANGUAGE_MAP = {
@@ -376,8 +378,6 @@ def get_genres():
     return items
 
 
-
-
 def _normalize_backend_node_id(entity_id, content_type=None, season=False):
     if entity_id is None:
         return None
@@ -401,6 +401,7 @@ def _normalize_backend_node_id(entity_id, content_type=None, season=False):
         return 'SHOW_SEASON:%s' % entity_id
     node_prefix = 'SHOW' if content_type == 'show' else 'MOVIE'
     return '%s:%s' % (node_prefix, entity_id)
+
 
 def got_title(callback, title_id, content_type):
     try:

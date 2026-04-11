@@ -9,7 +9,7 @@ from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaBlend, MultiContentEntryPixmapAlphaTest
 from Components.config import config, ConfigText, ConfigSubsection, configfile, ConfigPassword, ConfigYesNo, ConfigSubList
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr,\
+from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
     getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
     RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, getPrevAsciiCode, eTimer, eLabel
 from twisted.web.client import downloadPage
@@ -47,19 +47,19 @@ class JustWatchWatchlist(Screen, JustWatchSpinner):
     def __init__(self, session, providers_data_gui, providers, amazon, netflix):
         if DESKTOPSIZE.width() >= 1920:
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatch" position="center,center" size="1920,1080" title="JustWatch">
-                               <ePixmap name="JustWatchLogo" position="40,10" size="296,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_296x70.png" zPosition="1" />  
-                               <widget name="JustWatchHomeText" position="610,10" size="700,70" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 46" valign="center" halign="center"/>                  
+                               <ePixmap name="JustWatchLogo" position="40,10" size="296,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_296x70.png" zPosition="1" />
+                               <widget name="JustWatchHomeText" position="610,10" size="700,70" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 46" valign="center" halign="center"/>
                                <!-- Provider -->
                                <eLabel name="background" position="0,100" size="1920,250" backgroundColor="#001a2632" transparent="0" zPosition="1" />
                                <widget name="JustWatchProvider" position="40,100" size="1840,110" backgroundColor="#001a2632" zPosition="2" transparent="1" enableWrapAround="1" />
                                <!-- Content -->
-                               <widget name="JustWatchContentType" position="40,225" size="480,50" backgroundColor="#001a2632" zPosition="2" transparent="1" enableWrapAround="1" /> 
+                               <widget name="JustWatchContentType" position="40,225" size="480,50" backgroundColor="#001a2632" zPosition="2" transparent="1" enableWrapAround="1" />
                                <!-- Cover Gui -->
-                               <widget name="JustWatchItemText" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 28" valign="center" halign="center"/>                  
-                               <widget name="JustWatchSelectCover" position="40,420" size="1880,670" backgroundColor="#001b1e25" zPosition="2" transparent="1" enableWrapAround="1" />   
+                               <widget name="JustWatchItemText" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 28" valign="center" halign="center"/>
+                               <widget name="JustWatchSelectCover" position="40,420" size="1880,670" backgroundColor="#001b1e25" zPosition="2" transparent="1" enableWrapAround="1" />
                                <widget name="JustWatchCover" position="40,420" size="1880,670" backgroundColor="#001b1e25" zPosition="3" transparent="1" enableWrapAround="1" />
                                <!-- Spinner -->
-                               <widget name="BackgroundSpinner" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="0" zPosition="98" />               
+                               <widget name="BackgroundSpinner" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="0" zPosition="98" />
                                <widget name="JustWatchSpinner" position="925,350" size="70,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/spinner/1.png" alphatest="blend" zPosition="99" />
                                </screen>
                             """
@@ -77,7 +77,7 @@ class JustWatchWatchlist(Screen, JustWatchSpinner):
                                <widget name="JustWatchSelectCover" position="26,280" size="1253,446" backgroundColor="#001b1e25" zPosition="2" transparent="1" enableWrapAround="1" />
                                <widget name="JustWatchCover" position="26,280" size="1253,446" backgroundColor="#001b1e25" zPosition="3" transparent="1" enableWrapAround="1" />
                                <!-- Spinner -->
-                               <widget name="BackgroundSpinner" position="306,246" size="666,28" backgroundColor="#001b1e25" transparent="0" zPosition="98" />               
+                               <widget name="BackgroundSpinner" position="306,246" size="666,28" backgroundColor="#001b1e25" transparent="0" zPosition="98" />
                                <widget name="JustWatchSpinner" position="616,233" size="46,46" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/spinner/1.png" alphatest="blend" zPosition="99" />
                                </screen>
                             """

@@ -8,7 +8,7 @@ from Components.AVSwitch import AVSwitch
 from Components.Label import Label
 from Components.MultiContent import MultiContentEntryText
 from Components.config import config, ConfigText, ConfigSubsection, configfile, ConfigPassword, ConfigYesNo, ConfigSubList
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr,\
+from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
     getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
     RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP
 import os

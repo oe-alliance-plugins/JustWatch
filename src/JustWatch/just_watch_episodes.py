@@ -50,18 +50,18 @@ class JustWatchEpisodesScreen(Screen, EpisodesList):
                            <widget name="JustWatchCover" position="40,20" size="422,600" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/transparent_422x600.png" alphatest="blend" zPosition="3" />
                            <widget name="JustWatchContent" position="490,20" size="350,50" backgroundColor="#001b1e25" zPosition="1" transparent="1" enableWrapAround="1" />
                            <widget name="JustWatchContentProvider" position="490,80" size="1390,540" backgroundColor="#001a2632" zPosition="1" transparent="0" enableWrapAround="1" />
-                           <widget name="JustWatchTitleText" position="40,640" size="1840,50" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00ffffff" zPosition="1" font="JW; 38" valign="center" halign="left"/>                  
-                           <widget name="JustWatchDescriptionText" position="40,725" size="1840,330" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>                  
-                           <widget name="JustWatchDown" position="1836,1055" size="44,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/down_44x25.png" zPosition="1" />    
+                           <widget name="JustWatchTitleText" position="40,640" size="1840,50" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00ffffff" zPosition="1" font="JW; 38" valign="center" halign="left"/>
+                           <widget name="JustWatchDescriptionText" position="40,725" size="1840,330" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>
+                           <widget name="JustWatchDown" position="1836,1055" size="44,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/down_44x25.png" zPosition="1" />
                            <!-- Gui 2 -->
                            <widget name="JustWatchEpisodesGui" position="40,30" size="1820,660" foregroundColor="#00ffffff" backgroundColor="#001a2632" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" zPosition="4" transparent="0" enableWrapAround="1" />
-                           <widget name="MyScrollBarEpisodes" position="1860,30" size="20,660" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="660" />  
-                           <widget name="JustWatchEpisodeDescriptionText" position="40,720" size="1840,330" backgroundColor="#001a2632" transparent="0" foregroundColor="#00545a5f" zPosition="5" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>                  
-                           <widget name="BackgroundSelectEpiOffers" position="243,198" size="1434,644" backgroundColor="#00cac253" transparent="0" zPosition="6" />               
-                           <widget name="BackgroundEpiOffers" position="245,200" size="1430,640" backgroundColor="#001a2632" transparent="0" zPosition="7" />               
+                           <widget name="MyScrollBarEpisodes" position="1860,30" size="20,660" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="660" />
+                           <widget name="JustWatchEpisodeDescriptionText" position="40,720" size="1840,330" backgroundColor="#001a2632" transparent="0" foregroundColor="#00545a5f" zPosition="5" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>
+                           <widget name="BackgroundSelectEpiOffers" position="243,198" size="1434,644" backgroundColor="#00cac253" transparent="0" zPosition="6" />
+                           <widget name="BackgroundEpiOffers" position="245,200" size="1430,640" backgroundColor="#001a2632" transparent="0" zPosition="7" />
                            <widget name="JustWatchEpisodeContent" position="265,220" size="350,50" backgroundColor="#001a2632" zPosition="8" transparent="1" enableWrapAround="1" />
                            <widget name="JustWatchEpisodeContentProvider" position="265,280" size="1390,540" backgroundColor="#001a2632" zPosition="8" transparent="1" enableWrapAround="1" />
-                           </screen>          
+                           </screen>
                         """
         else:
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatchEpisodesScreen" position="center,center" size="1280,720" title="JustWatch">
@@ -69,18 +69,18 @@ class JustWatchEpisodesScreen(Screen, EpisodesList):
                            <widget name="JustWatchCover" position="26,13" size="281,400" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/transparent_281x400.png" alphatest="blend" zPosition="3" />
                            <widget name="JustWatchContent" position="326,13" size="233,33" backgroundColor="#001b1e25" zPosition="1" transparent="1" enableWrapAround="1" />
                            <widget name="JustWatchContentProvider" position="326,53" size="926,360" backgroundColor="#001a2632" zPosition="1" transparent="0" enableWrapAround="1" />
-                           <widget name="JustWatchTitleText" position="26,426" size="1226,33" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00ffffff" zPosition="1" font="JW; 25" valign="center" halign="left"/>                  
-                           <widget name="JustWatchDescriptionText" position="26,483" size="1226,220" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 20" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>                  
-                           <widget name="JustWatchDown" position="1224,703" size="29,16" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/down_29x16.png" zPosition="1" />    
+                           <widget name="JustWatchTitleText" position="26,426" size="1226,33" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00ffffff" zPosition="1" font="JW; 25" valign="center" halign="left"/>
+                           <widget name="JustWatchDescriptionText" position="26,483" size="1226,220" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 20" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>
+                           <widget name="JustWatchDown" position="1224,703" size="29,16" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/down_29x16.png" zPosition="1" />
                            <!-- Gui 2 -->
                            <widget name="JustWatchEpisodesGui" position="26,20" size="1213,440" foregroundColor="#00ffffff" backgroundColor="#001a2632" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" zPosition="4" transparent="0" enableWrapAround="1" />
-                           <widget name="MyScrollBarEpisodes" position="1240,20" size="13,440" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="440" />  
-                           <widget name="JustWatchEpisodeDescriptionText" position="26,480" size="1226,220" backgroundColor="#001a2632" transparent="0" foregroundColor="#00545a5f" zPosition="5" font="JW; 20" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>                  
-                           <widget name="BackgroundSelectEpiOffers" position="162,132" size="956,429" backgroundColor="#00cac253" transparent="0" zPosition="6" />               
-                           <widget name="BackgroundEpiOffers" position="163,133" size="953,426" backgroundColor="#001a2632" transparent="0" zPosition="7" />               
+                           <widget name="MyScrollBarEpisodes" position="1240,20" size="13,440" transparent="0" backgroundColor="#001a2632" zPosition="5" itemHeight="440" />
+                           <widget name="JustWatchEpisodeDescriptionText" position="26,480" size="1226,220" backgroundColor="#001a2632" transparent="0" foregroundColor="#00545a5f" zPosition="5" font="JW; 20" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>
+                           <widget name="BackgroundSelectEpiOffers" position="162,132" size="956,429" backgroundColor="#00cac253" transparent="0" zPosition="6" />
+                           <widget name="BackgroundEpiOffers" position="163,133" size="953,426" backgroundColor="#001a2632" transparent="0" zPosition="7" />
                            <widget name="JustWatchEpisodeContent" position="176,146" size="233,33" backgroundColor="#001a2632" zPosition="8" transparent="1" enableWrapAround="1" />
                            <widget name="JustWatchEpisodeContentProvider" position="176,186" size="926,360" backgroundColor="#001a2632" zPosition="8" transparent="1" enableWrapAround="1" />
-                           </screen>          
+                           </screen>
                         """
         Screen.__init__(self, session)
 

@@ -63,7 +63,9 @@ def _first_nonempty_quality(content_stream_list, fallback="HD"):
         quality_data = content_stream_list.get(quality, {}) if isinstance(content_stream_list, dict) else {}
         if any(quality_data.get(k) for k in ("flatrate", "rent", "buy")):
             return quality
-    return fallback if fallback in (content_stream_list or {}) else next(iter(content_stream_list or {"HD":{}}))
+    return fallback if fallback in (content_stream_list or {}) else next(iter(content_stream_list or {"HD": {}}))
+
+
 ACTOR_STR = _("Actors:")
 TRAILER_STR = _("Trailer:")
 TRAILER_ERROR_STR = _("No trailer was found!")
@@ -84,10 +86,10 @@ class JustWatchMovieScreen(Screen, JustWatchSpinner):
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatchMovieScreen" position="center,center" size="1920,1080" title="JustWatch">
                            <!-- Gui 1 -->
                            <widget name="JustWatchBackdrop" position="40,10" size="1840,600" backgroundColor="#001b1e25" zPosition="1" transparent="1" enableWrapAround="1" />
-                           <widget name="JustWatchTitleText" position="40,620" size="1840,50" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00ffffff" zPosition="1" font="JW; 38" valign="center" halign="left"/>                  
-                           <widget name="JustWatchGenresText" position="40,680" size="1840,40" backgroundColor="#001b1e25" transparent="1" foregroundColor="#008a8876" zPosition="1" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>                  
-                           <widget name="JustWatchDescriptionText" position="40,725" size="1840,330" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>                  
-                           <widget name="JustWatchDown" position="1836,1055" size="44,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/down_44x25.png" zPosition="1" />  
+                           <widget name="JustWatchTitleText" position="40,620" size="1840,50" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00ffffff" zPosition="1" font="JW; 38" valign="center" halign="left"/>
+                           <widget name="JustWatchGenresText" position="40,680" size="1840,40" backgroundColor="#001b1e25" transparent="1" foregroundColor="#008a8876" zPosition="1" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>
+                           <widget name="JustWatchDescriptionText" position="40,725" size="1840,330" backgroundColor="#001b1e25" transparent="1" foregroundColor="#00545a5f" zPosition="1" font="JW; 30" valign="top" halign="left" options="movetype=swimming,startpoint=0,direction=top,always=0,steptime=150,repeat=999,startdelay=10000,wrap"/>
+                           <widget name="JustWatchDown" position="1836,1055" size="44,25" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/down_44x25.png" zPosition="1" />
                            <!-- Gui 2 -->
                            <widget name="JustWatchCover" position="40,20" size="422,600" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/transparent_422x600.png" alphatest="blend" zPosition="3" />
                            <widget name="JustWatchContent" position="490,20" size="596,50" backgroundColor="#001b1e25" zPosition="1" transparent="1" enableWrapAround="1" />
@@ -95,12 +97,12 @@ class JustWatchMovieScreen(Screen, JustWatchSpinner):
                            <widget name="JustWatchActors" position="40,640" size="1840,170" backgroundColor="#001a2632" zPosition="2" transparent="0" enableWrapAround="1" />
                            <widget name="JustWatchTrailers" position="40,830" size="1840,170" backgroundColor="#001a2632" zPosition="2" transparent="0" enableWrapAround="1" />
                            <!-- Provider Mode -->
-                           <widget name="BackgroundProviderModeList" position="560,215" size="800,610" backgroundColor="#00cac253" transparent="0" zPosition="7" />               
+                           <widget name="BackgroundProviderModeList" position="560,215" size="800,610" backgroundColor="#00cac253" transparent="0" zPosition="7" />
                            <widget name="JustWatchProviderModeList" position="565,220" size="790,600" foregroundColor="#00ffffff" backgroundColor="#001a2632" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" zPosition="8" transparent="0" enableWrapAround="1" />
                            <!-- Spinner -->
-                           <widget name="BackgroundSpinner" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="0" zPosition="98" />               
+                           <widget name="BackgroundSpinner" position="460,370" size="1000,42" backgroundColor="#001b1e25" transparent="0" zPosition="98" />
                            <widget name="JustWatchSpinner" position="925,640" size="70,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/spinner/1.png" alphatest="blend" zPosition="99" />
-                           </screen>          
+                           </screen>
                         """
         else:
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatchMovieScreen" position="center,center" size="1280,720" title="JustWatch">

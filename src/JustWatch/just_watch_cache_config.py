@@ -25,17 +25,17 @@ class JustWatchCacheScreen(Screen):
     def __init__(self, session):
         if DESKTOPSIZE.width() >= 1920:
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatch" position="center,center" size="1920,1080" title="JustWatch">
-                           <ePixmap name="JustWatchLogo" position="40,10" size="296,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_296x70.png" zPosition="1" />  
+                           <ePixmap name="JustWatchLogo" position="40,10" size="296,70" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_296x70.png" zPosition="1" />
                            <widget name="JustWatchConfig" position="40,100" size="1840,180" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="1" transparent="0" enableWrapAround="1" />
                            <widget name="JustWatchFolder" position="40,310" size="1840,750" itemHeight="50" scrollbarMode="showOnDemand" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="1" transparent="0" enableWrapAround="1" />
-                           </screen>          
+                           </screen>
                         """
         else:
             self.skin = """<screen backgroundColor="#001b1e25" flags="wfNoBorder" name="JustWatch" position="center,center" size="1280,720" title="JustWatch">
                            <ePixmap name="JustWatchLogo" position="26,6" size="197,46" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/images/just_logo_197x46.png" zPosition="1" />
                            <widget name="JustWatchConfig" position="26,66" size="1226,120" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="1" transparent="0" enableWrapAround="1" />
                            <widget name="JustWatchFolder" position="26,206" size="1226,495" itemHeight="33" scrollbarMode="showOnDemand" backgroundColorSelected="#001a2632" foregroundColorSelected="#00cac253" foregroundColor="#00545a5f" backgroundColor="#001a2632" zPosition="1" transparent="0" enableWrapAround="1" />
-                           </screen>          
+                           </screen>
                         """
         Screen.__init__(self, session)
 
