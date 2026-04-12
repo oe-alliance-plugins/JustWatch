@@ -5,10 +5,8 @@ from Components.HTMLComponent import HTMLComponent
 from Components.GUIComponent import GUIComponent
 from Components.VariableText import VariableText
 from Components.Label import Label
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaBlend, MultiContentEntryPixmapAlphaTest
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, getPrevAsciiCode, eTimer, eLabel
+from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
+from enigma import gFont, getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, RT_VALIGN_CENTER, getPrevAsciiCode, eLabel
 
 
 DESKTOPSIZE = getDesktop(0).size()
@@ -236,11 +234,10 @@ class SearchInput:
 
         self.max_key -= 1
         self.markSelectedKey()
-        return
 
     def markSelectedKey(self):
         # w, h = skin.parameters.get('VirtualKeyboard', (45, 45))
-        w = int(68 / skinFactor)
+        # w = int(68 / skinFactor)
         h = int(68 / skinFactor)
         if self.previousSelectedKey is not None:
             self.list[self.previousSelectedKey // 12] = self.list[self.previousSelectedKey // 12][:-1]
@@ -255,7 +252,6 @@ class SearchInput:
             MultiContentEntryPixmapAlphaTest(pos=(x, 0), size=(width, h), png=self.key_sel))
         self.previousSelectedKey = self.selectedKey
         self['list'].setList(self.list)
-        return
 
     def keyNumberGlobal(self, number):
         if self.search_show:
@@ -609,7 +605,7 @@ class Input(VariableText, HTMLComponent, GUIComponent, NumericalTextInput):
         if self.allmarked:
             self.deleteAllChars()
             self.allmarked = False
-        self.insertChar(unichr(code), self.currPos, False, False)
+        self.insertChar(chr(code), self.currPos, False, False)
         self.innerright()
         self.update()
 

@@ -13,7 +13,7 @@ def got_play_url(callback, id, name):
         ytLink_raw = subprocess.check_output([BIN, '--no-check-certificate', '-f 22', '-g', url])
         ytLink_raw = ytLink_raw.splitlines()
         ytLink = ytLink_raw[0]
-    except:
+    except Exception:
         ytLink = None
     reactor.callFromThread(callback, (ytLink, name))
 

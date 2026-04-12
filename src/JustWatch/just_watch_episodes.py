@@ -1,3 +1,4 @@
+import os
 from Components.AVSwitch import AVSwitch
 from Components.ActionMap import NumberActionMap
 from Components.Label import Label
@@ -12,7 +13,7 @@ from enigma import ePicLoad, gFont, gPixmapPtr, \
     getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, \
     RT_VALIGN_CENTER
 
-from .justWatch import *
+from .justWatch import get_provider_over_id, get_currency
 from .just_watch_episodes_helper import EpisodesList
 from .__init__ import _
 
@@ -409,7 +410,7 @@ class JustWatchEpisodesScreen(Screen, EpisodesList):
             decode = self.picload.startDecode(self.cover_destination, 0, 0, False)
             if decode == 0:
                 ptr = self.picload.getData()
-                if ptr != None:
+                if ptr is not None:
                     self['JustWatchCover'].instance.setPixmap(ptr)
 
 
@@ -867,6 +868,6 @@ def load_pic_scale(pic, pwidth, pheight, color):
     picload.setPara((pwidth, pheight, scale[0], scale[1], False, 1, color))
     if not picload.startDecode(pic, 0, 0, False):
         ptr = picload.getData()
-        if ptr != None:
+        if ptr is not None:
             del picload
             return ptr

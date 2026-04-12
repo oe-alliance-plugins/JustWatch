@@ -1,20 +1,16 @@
-from Plugins.Plugin import PluginDescriptor
+from os.path import isfile
+
 from Screens.Screen import Screen
 from Components.MenuList import MenuList
-from Components.ActionMap import ActionMap, NumberActionMap
-from Components.Pixmap import Pixmap
+from Components.ActionMap import NumberActionMap
 from Components.AVSwitch import AVSwitch
-from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaBlend, MultiContentEntryPixmapAlphaTest
-from Components.config import config, ConfigText, ConfigSubsection, configfile, ConfigPassword, ConfigYesNo, ConfigSubList
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, getPrevAsciiCode, eTimer, eLabel
-from twisted.web.client import downloadPage
+from Components.MultiContent import MultiContentEntryText
+from Components.config import config
+from enigma import ePicLoad, gFont, eTimer, getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, RT_VALIGN_CENTER, RT_WRAP
 
-from .justWatch import *
+from .justWatch import get_watchlist, get_poster_url, download_file, get_title
 from .just_watch_spinner import JustWatchSpinner
 from .just_watch_movie import JustWatchMovieScreen
 from .just_watch_series import JustWatchSeriesScreen
@@ -167,7 +163,7 @@ class JustWatchWatchlist(Screen, JustWatchSpinner):
                 elif sort == "Movies" and object_type == "movie":
                     is_sort = True
                 if is_sort:
-                    if not os.path.isfile(cover_destination):
+                    if not isfile(cover_destination):
                         self.cover_list.append((cover_destination, cover_url))
                     self.cover_gui_list.append((cover_destination, object_type, title))
                     self.video_data.append(item)
@@ -355,7 +351,7 @@ class JustWatchWatchlist(Screen, JustWatchSpinner):
             self.setLoad.reverse()
             if self.setLoad:
                 (cover, link) = self.setLoad[0]
-                if os.path.isfile(cover):
+                if isfile(cover):
                     delete = self.setLoad[0]
                     self.setLoad.remove(delete)
                     self.CoverTimer.start(600, True)
@@ -391,7 +387,7 @@ class JustWatchWatchlist(Screen, JustWatchSpinner):
                 self.CoverTimerStatus = False
                 self.CoverTimer.start(300, True)
                 for picSave, coverUrl in self.setLoad:
-                    if not os.path.isfile(picSave):
+                    if not isfile(picSave):
                         if coverUrl is not None:
                             download_file(coverUrl, picSave)
 
@@ -428,7 +424,7 @@ def cover_gui_entry(entry):
         w_pos = int(5 / skinFactor)
         for i in range(max_range):
             png_destination = data[x][0]
-            if os.path.isfile(png_destination):
+            if isfile(png_destination):
                 png = load_pic_scale(png_destination, int(220 / skinFactor), int(312 / skinFactor), "#001a2632")
                 res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, w_pos, int(5 / skinFactor),
                             int(220 / skinFactor), int(312 / skinFactor), png))
@@ -450,7 +446,7 @@ def cover_gui_entry(entry):
         w_pos = int(5 / skinFactor)
         for i in range(max_range):
             png_destination = data[x][0]
-            if os.path.isfile(png_destination):
+            if isfile(png_destination):
                 png = load_pic_scale(png_destination, int(220 / skinFactor), int(312 / skinFactor), "#001a2632")
                 res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, w_pos, int(327 / skinFactor),
                             int(220 / skinFactor), int(312 / skinFactor), png))
@@ -504,7 +500,7 @@ def load_pic_scale(pic, pwidth, pheight, color):
     picload.setPara((pwidth, pheight, scale[0], scale[1], False, 1, color))
     if not picload.startDecode(pic, 0, 0, False):
         ptr = picload.getData()
-        if ptr != None:
+        if ptr is not None:
             del picload
             return ptr
 
@@ -522,7 +518,7 @@ def provider_gui_entry(entry):
         (short_name, icon_destination) = data[x]
         if w_size > 1840:
             break
-        if os.path.isfile(icon_destination):
+        if isfile(icon_destination):
             png = load_pic_scale(icon_destination, int(100 / skinFactor), int(100 / skinFactor), "#001a2632")
             res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, w_size, int(5 / skinFactor),
                         int(100 / skinFactor), int(100 / skinFactor), png))

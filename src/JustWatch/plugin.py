@@ -1,32 +1,21 @@
+from os import system
+from os.path import isfile, isdir, exists
+
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.MenuList import MenuList
-from Components.ActionMap import ActionMap, NumberActionMap
+from Components.ActionMap import NumberActionMap
 from Components.Pixmap import Pixmap
 from Components.AVSwitch import AVSwitch
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from Tools.LoadPixmap import LoadPixmap
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaBlend, MultiContentEntryPixmapAlphaTest
-from Components.config import config, ConfigText, ConfigSubsection, configfile, ConfigPassword, ConfigYesNo, ConfigSubList
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP, getPrevAsciiCode, eTimer, eLabel
+from Components.MultiContent import MultiContentEntryText
+from Components.config import config, ConfigText, ConfigSubsection, configfile, ConfigYesNo
+from enigma import ePicLoad, gFont, addFont, eTimer, getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, RT_VALIGN_CENTER, RT_WRAP
 
-from Screens.Console import Console
-from Screens.Standby import TryQuitMainloop
+from .justWatch import WATCHLIST, download_file, get_century, get_certifications, get_genres, get_locale, get_poster_url, get_provider_icon_url, get_providers, get_search_for_item, get_title, get_watchlistIds, jw_debug, get_free_flash
 
-config.justwatch = ConfigSubsection()
-config.justwatch.locale = ConfigText(default="de_DE", fixed_size=False)
-config.justwatch.country = ConfigText(default="DE", fixed_size=False)
-
-config.justwatch.providers = ConfigText(default="", fixed_size=False)
-
-config.justwatch.cache_destination = ConfigText(default="/tmp/JustWatch", fixed_size=False)
-config.justwatch.cache_clear = ConfigYesNo(default=False)
-config.justwatch.content_mode = ConfigText(default="SD", fixed_size=False)
-
-from .justWatch import *
 from .just_watch_provider_config import ProviderConfig
 from .just_watch_fsk_config import FskConfig
 from .just_watch_genre_config import GenreConfig
@@ -41,6 +30,16 @@ from .just_watch_cache_config import JustWatchCacheScreen
 from .just_watch_watchlist import JustWatchWatchlist
 
 from .__init__ import _
+
+config.justwatch = ConfigSubsection()
+config.justwatch.locale = ConfigText(default="de_DE", fixed_size=False)
+config.justwatch.country = ConfigText(default="DE", fixed_size=False)
+
+config.justwatch.providers = ConfigText(default="", fixed_size=False)
+
+config.justwatch.cache_destination = ConfigText(default="/tmp/JustWatch", fixed_size=False)
+config.justwatch.cache_clear = ConfigYesNo(default=False)
+config.justwatch.content_mode = ConfigText(default="SD", fixed_size=False)
 
 DESKTOPSIZE = getDesktop(0).size()
 if DESKTOPSIZE.width() > 1280:
@@ -85,7 +84,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
     try:
         addFont("/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/font/OpenSans-Regular.ttf", "JW", 100,
                 False)
-    except Exception as ex:
+    except Exception:
         addFont("/usr/lib/enigma2/python/Plugins/Extensions/JustWatch/font/OpenSans-Regular.ttf", "JW", 100,
                 False,
                 0)
@@ -272,12 +271,12 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
         self['JustWatchWatchlistSelect'] = Pixmap()
         self['JustWatchWatchlistSelect'].hide()
 
-        if not os.path.isdir(config.justwatch.cache_destination.value):
-            os.system("mkdir %s" % config.justwatch.cache_destination.value)
-        if not os.path.isdir("%s/provider" % config.justwatch.cache_destination.value):
-            os.system("mkdir %s/provider" % config.justwatch.cache_destination.value)
-        if not os.path.exists(WATCHLIST):
-            os.system("mkdir /etc/enigma2/justWatch")
+        if not isdir(config.justwatch.cache_destination.value):
+            system("mkdir %s" % config.justwatch.cache_destination.value)
+        if not isdir("%s/provider" % config.justwatch.cache_destination.value):
+            system("mkdir %s/provider" % config.justwatch.cache_destination.value)
+        if not exists(WATCHLIST):
+            system("mkdir /etc/enigma2/justWatch")
 
         self.cover_list = []
         self.setLoad = []
@@ -314,13 +313,12 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
         get_free_flash(self.cbReceivedCheckSpace)
 
     def cbReceivedCheckSpace(self, free):
-        if free:
-            if free < 130:
-                error = "Warning, only %sMB free on %s !" % (str(free), config.justwatch.cache_destination.value)
-                try:
-                    self.session.open(MessageBox, error, MessageBox.TYPE_ERROR)
-                except:
-                    print("JustWatch session error")
+        if free and free < 130:
+            error = "Warning, only %sMB free on %s !" % (str(free), config.justwatch.cache_destination.value)
+            try:
+                self.session.open(MessageBox, error, MessageBox.TYPE_ERROR)
+            except Exception:
+                print("JustWatch session error")
 
     def do_import_providers(self):
         self.providers_data = get_providers()
@@ -338,7 +336,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
                 icon_destination = "%s/provider/%s.jpg" % (config.justwatch.cache_destination.value, provider.get("technical_name"))
                 if provider.get("short_name") in providers_active or select_all:
                     self.providers_gui_data.append((provider.get("short_name"), icon_destination))
-                if not os.path.isfile(icon_destination):
+                if not isfile(icon_destination):
                     download_file(icon_url, icon_destination, self.updateProviderList)
             self.updateProviderList()
         self.createVideoData()
@@ -405,7 +403,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
                     watched = True if item.get("id") in watchlistIdsMovie else False
                 else:
                     watched = True if item.get("id") in watchlistIdsShow else False
-                if not os.path.isfile(cover_destination):
+                if not isfile(cover_destination):
                     self.cover_list.append((cover_destination, cover_url))
                 self.cover_gui_list.append((cover_destination, object_type, title, watched))
         else:
@@ -619,8 +617,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
             for item in self.video_data["items"]:
                 cover_destination = "%s/%s-poster.jpg" % (config.justwatch.cache_destination.value, str(item.get("id")))
                 cover_size = "big" if skinFactor == 1 else "small"
-                cover_url = get_poster_url(item.get("poster"), size=cover_size) if item.get(
-                    "poster") else None
+                cover_url = get_poster_url(item.get("poster"), size=cover_size) if item.get("poster") else None  # noqa: F841
                 object_type = item.get("object_type")
                 title = item.get("title") if item.get("title") else ""
                 if object_type == "movie":
@@ -747,7 +744,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
 
     def clearTemp(self):
         if config.justwatch.cache_clear.value:
-            os.system("rm %s/*.jpg" % config.justwatch.cache_destination.value)
+            system("rm %s/*.jpg" % config.justwatch.cache_destination.value)
 
     def keyLeft(self):
         if self.settings_config_list_show:
@@ -962,7 +959,7 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
             self.setLoad.reverse()
             if self.setLoad:
                 (cover, link) = self.setLoad[0]
-                if os.path.isfile(cover):
+                if isfile(cover):
                     delete = self.setLoad[0]
                     self.setLoad.remove(delete)
                     self.CoverTimer.start(600, True)
@@ -1005,9 +1002,8 @@ class JustWatch(Screen, ProviderConfig, FskConfig, GenreConfig, CenturyConfig, S
                 self.CoverTimerStatus = False
                 self.CoverTimer.start(300, True)
                 for picSave, coverUrl in self.setLoad:
-                    if not os.path.isfile(picSave):
-                        if coverUrl is not None:
-                            download_file(coverUrl, picSave)
+                    if not isfile(picSave) and coverUrl is not None:
+                        download_file(coverUrl, picSave)
 
 
 def select_cover_entry(entry):
@@ -1041,7 +1037,7 @@ def cover_gui_entry(entry):
     w_pos = int(5 / skinFactor)
     for i in range(max_range):
         png_destination = data[x][0]
-        if os.path.isfile(png_destination):
+        if isfile(png_destination):
             png = load_pic_scale(png_destination, int(220 / skinFactor), int(312 / skinFactor), "#001a2632")
             res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, w_pos, int(5 / skinFactor),
                         int(220 / skinFactor), int(312 / skinFactor), png))
@@ -1069,7 +1065,7 @@ def cover_gui_entry(entry):
     w_pos = int(5 / skinFactor)
     for i in range(max_range):
         png_destination = data[x][0]
-        if os.path.isfile(png_destination):
+        if isfile(png_destination):
             png = load_pic_scale(png_destination, int(220 / skinFactor), int(312 / skinFactor), "#001a2632")
             res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, w_pos, int(327 / skinFactor),
                         int(220 / skinFactor), int(312 / skinFactor), png))
@@ -1160,7 +1156,7 @@ def load_pic_scale(pic, pwidth, pheight, color):
     picload.setPara((pwidth, pheight, scale[0], scale[1], False, 1, color))
     if not picload.startDecode(pic, 0, 0, False):
         ptr = picload.getData()
-        if ptr != None:
+        if ptr is not None:
             del picload
             return ptr
 
@@ -1178,7 +1174,7 @@ def provider_gui_entry(entry):
         (short_name, icon_destination) = data[x]
         if w_size > 1840:
             break
-        if os.path.isfile(icon_destination):
+        if isfile(icon_destination):
             png = load_pic_scale(icon_destination, int(100 / skinFactor), int(100 / skinFactor), "#001a2632")
             res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, w_size, int(5 / skinFactor),
                         int(100 / skinFactor), int(100 / skinFactor), png))

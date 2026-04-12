@@ -1,3 +1,4 @@
+import os
 from Components.MenuList import MenuList
 from Tools.LoadPixmap import LoadPixmap
 from Components.AVSwitch import AVSwitch
@@ -5,11 +6,10 @@ from Components.Label import Label
 from Components.config import config, configfile
 from Components.MultiContent import MultiContentEntryText
 from Components.Renderer.JustWatchVRunningText import JustWatchVRunningText
-from enigma import ePicLoad, gFont, addFont, ePythonMessagePump, eServiceReference, eTimer, gPixmapPtr, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_VALIGN_TOP, RT_WRAP
+from enigma import ePicLoad, gFont, getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, RT_VALIGN_CENTER
 import math
-from .justWatch import *
+
+from .justWatch import get_currency
 from .__init__ import _
 
 SCROLLBARBACKCOLOR = 0x545a5f
@@ -543,6 +543,6 @@ def load_pic_scale(pic, pwidth, pheight, color):
     picload.setPara((pwidth, pheight, scale[0], scale[1], False, 1, color))
     if not picload.startDecode(pic, 0, 0, False):
         ptr = picload.getData()
-        if ptr != None:
+        if ptr is not None:
             del picload
             return ptr

@@ -44,7 +44,7 @@ class JustWatchSpinner:
         decode = self.picload.startDecode(png, 0, 0, False)
         if decode == 0:
             ptr = self.picload.getData()
-            if ptr != None:
+            if ptr is not None:
                 self['JustWatchSpinner'].instance.setPixmap(ptr)
                 if self.JustWatchSpinnerBackground:
                     self['BackgroundSpinner'].show()

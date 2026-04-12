@@ -1,4 +1,3 @@
-from Screens.Screen import Screen
 import os
 
 from Components.AVSwitch import AVSwitch
@@ -16,9 +15,8 @@ from Tools.LoadPixmap import LoadPixmap
 from enigma import ePicLoad, gFont, eServiceReference, gPixmapPtr, \
     getDesktop, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_CENTER, \
     RT_VALIGN_CENTER, RT_WRAP, eTimer
-from twisted.web.client import downloadPage
 
-from .justWatch import *
+from .justWatch import DISNEYDREAM, NETFLIXDREAM, AMAZONDREAM, add_item_watchlist, remove_item_watchlist, get_backdrop_url, get_genre_over_ids, get_watchlistIds, get_poster_url, download_file, get_person_detail, get_season, get_provider_title_id, get_provider_over_id, jw_debug
 from .just_watch_spinner import JustWatchSpinner
 from .just_watch_episodes import JustWatchEpisodesScreen
 from .just_watch_actor_search import JustWatchPersonSearchScreen
@@ -798,7 +796,7 @@ class JustWatchSeriesScreen(Screen, JustWatchSpinner):
             decode = self.picload.startDecode(self.cover_destination, 0, 0, False)
             if decode == 0:
                 ptr = self.picload.getData()
-                if ptr != None:
+                if ptr is not None:
                     self['JustWatchCover'].instance.setPixmap(ptr)
 
     def playTrailer(self, callback):
@@ -1315,7 +1313,7 @@ def load_pic_scale(pic, pwidth, pheight, color):
     picload.setPara((pwidth, pheight, scale[0], scale[1], False, 1, color))
     if not picload.startDecode(pic, 0, 0, False):
         ptr = picload.getData()
-        if ptr != None:
+        if ptr is not None:
             del picload
             return ptr
 

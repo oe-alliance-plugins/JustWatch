@@ -7,9 +7,7 @@ from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.config import config
-from enigma import ePicLoad, gFont, eTimer, \
-    getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, \
-    RT_VALIGN_CENTER, RT_WRAP
+from enigma import ePicLoad, gFont, eTimer, getDesktop, eListboxPythonMultiContent, RT_HALIGN_CENTER, RT_WRAP
 
 from .justWatch import download_file, get_poster_url, get_title
 from .just_watch_spinner import JustWatchSpinner
