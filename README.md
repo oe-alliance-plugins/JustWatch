@@ -31,7 +31,7 @@
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_JustWatch)
 
-### 📦 FritzCall Overview
+### 📦 JustWatch Overview
 
 Have fun browsing and discovering your favorite movies and TV shows to stream.
 
