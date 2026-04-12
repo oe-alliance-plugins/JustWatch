@@ -2,7 +2,7 @@
 
 # <p align="center">JustWatch Plugin for Enigma2 (E²) ![GitHub repo size](https://img.shields.io/github/repo-size/oe-alliance-plugins/JustWatch.svg)</p>
 
-**Perform the cuts specified with the Cutlist editor**
+**Have fun browsing and discovering your favorite movies and TV shows to stream. On various streaming platforms using the JustWatch API**
 
 
 ## Github status
@@ -30,6 +30,35 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_JustWatch&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_JustWatch)
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_JustWatch)
+
+### 📦 JustWatch Overview
+
+Have fun browsing and discovering your favorite movies and TV shows to stream.
+
+Find out what you can watch on your favorite streaming services.
+
+Which movies and TV shows are new to the lineup? Where can I find the most popular movies, and which TV shows are trending right now?
+
+In this overview, JustWatch shows you which movies and TV shows you can watch online.
+
+We only show you legal options. So you’ll see all the ways you can buy or rent your movie or favorite series online, or which provider lets you stream it. We’ve developed effective filtering options for this:
+
+You can easily select your favorite genres and filter by release year.
+
+Or search directly for movies and TV shows to find out where you can watch them legally online.
+
+---
+
+### 🙏 Credits
+
+**👨‍💻 Author:**
+
+- original Idea and Created by **murxer**
+
+** Special Thanks **
+- All contributors and testers
+- Open source community
+- Enigma2 developers
 
 ---
 
