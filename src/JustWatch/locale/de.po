@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JustWatch\n"
-"Report-Msgid-Bugs-To: BUG-EMAIL-ADDR <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2026-04-11 22:16+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 09:52+0200\n"
 "PO-Revision-Date: 2026-04-11 22:20+0200\n"
 "Last-Translator: oe-a\n"
 "Language-Team: LANGUAGE <Free>\n"
@@ -19,101 +19,109 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: just_watch_actor_search.py:26 just_watch_watchlist.py:40 plugin.py:68
-msgid " Title"
-msgstr " Titel"
-
-#: just_watch_cache_config.py:68
-msgid "Clear cache on exit"
-msgstr "Leere Cache beim Beenden"
-
-#: just_watch_cache_config.py:69
-msgid "Cache directory"
-msgstr "Cache-Verzeichnis"
-
-#: just_watch_cache_config.py:71
-msgid "Clear cache"
-msgstr "Cache leeren"
-
-#: just_watch_cache_config.py:77
-msgid "Create cache folder on "
-msgstr "Cache-Ordner erstellen in "
-
-#: just_watch_cache_config.py:87
-msgid "New folder saved!"
-msgstr "Neuer Ordner gespeichert!"
-
-#: just_watch_cache_config.py:99
-msgid "Do you want to clear cache?"
-msgstr "Möchten Sie die Cache leeren?"
-
-#: just_watch_cache_config.py:185
-msgid "on"
-msgstr "an"
-
-#: just_watch_cache_config.py:185
-msgid "off"
-msgstr "aus"
-
-#: just_watch_config.py:28
-msgid "Country-Settings"
-msgstr "Ländereinstellungen"
-
-#: just_watch_config.py:29
-msgid "Provider-Settings"
-msgstr "Provider-Einstellungen"
-
-#: just_watch_config.py:30
-msgid "Cache-Settings"
-msgstr "Cache-Einstellungen"
-
-#: just_watch_config.py:31
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: just_watch_country_config.py:25
-msgid "Please choose your country"
-msgstr "Bitte wählen Sie Ihr Land"
-
-#: just_watch_episodes.py:39 just_watch_episodes_helper.py:38
-#: just_watch_movie.py:49 just_watch_series.py:51
-msgid "There are currently no offers."
-msgstr "Derzeit liegen keine Angebote vor."
-
-#: just_watch_episodes.py:40 just_watch_episodes_helper.py:39
+#: ../just_watch_episodes.py:40 ../just_watch_episodes_helper.py:39
 msgid " Episode"
 msgstr " Folge"
 
-#: just_watch_episodes.py:41 just_watch_episodes_helper.py:40
+#: ../just_watch_episodes.py:41 ../just_watch_episodes_helper.py:40
 msgid " Episodes"
 msgstr " Folgen"
 
-#: just_watch_episodes.py:42 just_watch_episodes_helper.py:41
-#: just_watch_movie.py:70 just_watch_series.py:74
-msgid "Unfortunately no description available at the moment."
-msgstr "Leider ist derzeit keine Beschreibung verfügbar."
+#: ../just_watch_series.py:72
+msgid " Season"
+msgstr " Staffel"
 
-#: just_watch_episodes.py:430 just_watch_episodes.py:634
-#: just_watch_episodes_helper.py:318 just_watch_movie.py:891
-#: just_watch_series.py:1071
+#: ../just_watch_series.py:73
+msgid " Seasons"
+msgstr " Staffeln"
+
+#: ../just_watch_actor_search.py:22 ../just_watch_watchlist.py:36
+#: ../plugin.py:67
+msgid " Title"
+msgstr " Titel"
+
+#: ../just_watch_movie.py:67 ../just_watch_series.py:69
+msgid "Actors:"
+msgstr "Schauspieler:"
+
+#: ../just_watch_movie.py:73 ../just_watch_series.py:77
+msgid "Add to Watchlist"
+msgstr "Zur Watchlist hinzufügen"
+
+#: ../just_watch_episodes.py:556 ../just_watch_episodes.py:768
+#: ../just_watch_episodes_helper.py:443 ../just_watch_movie.py:986
+#: ../just_watch_series.py:1173
 msgid ""
-"S\n"
-"t\n"
-"r\n"
-"e\n"
-"a\n"
-"m"
+"B\n"
+"u\n"
+"y"
 msgstr ""
-"S\n"
-"t\n"
-"r\n"
-"e\n"
+"K\n"
 "a\n"
-"m"
+"u\n"
+"f\n"
+"e\n"
+"n"
 
-#: just_watch_episodes.py:489 just_watch_episodes.py:701
-#: just_watch_episodes_helper.py:377 just_watch_movie.py:950
-#: just_watch_series.py:1137
+#: ../just_watch_cache_config.py:67
+msgid "Cache directory"
+msgstr "Cache-Verzeichnis"
+
+#: ../just_watch_config.py:29
+msgid "Cache-Settings"
+msgstr "Cache-Einstellungen"
+
+#: ../just_watch_cache_config.py:69
+msgid "Clear cache"
+msgstr "Cache leeren"
+
+#: ../just_watch_cache_config.py:66
+msgid "Clear cache on exit"
+msgstr "Leere Cache beim Beenden"
+
+#: ../just_watch_config.py:27
+msgid "Country-Settings"
+msgstr "Ländereinstellungen"
+
+#: ../just_watch_cache_config.py:75
+msgid "Create cache folder on "
+msgstr "Cache-Ordner erstellen in "
+
+#: ../just_watch_movie.py:74 ../just_watch_series.py:78
+msgid "Delete from Watchlist"
+msgstr "Aus Watchlist löschen"
+
+#: ../just_watch_cache_config.py:97
+msgid "Do you want to clear cache?"
+msgstr "Möchten Sie die Cache leeren?"
+
+#: ../plugin.py:1250
+msgid "JustWatch streaming search"
+msgstr "JustWatch-Streaming-Suche"
+
+#: ../just_watch_provider_config.py:26
+msgid "My streaming providers"
+msgstr "Meine Streaming-Anbieter"
+
+#: ../just_watch_cache_config.py:85
+msgid "New folder saved!"
+msgstr "Neuer Ordner gespeichert!"
+
+#: ../just_watch_movie.py:69 ../just_watch_series.py:71
+msgid "No trailer was found!"
+msgstr "Es wurde kein Trailer gefunden!"
+
+#: ../just_watch_country_config.py:24
+msgid "Please choose your country"
+msgstr "Bitte wählen Sie Ihr Land"
+
+#: ../just_watch_config.py:28
+msgid "Provider-Settings"
+msgstr "Provider-Einstellungen"
+
+#: ../just_watch_episodes.py:490 ../just_watch_episodes.py:702
+#: ../just_watch_episodes_helper.py:377 ../just_watch_movie.py:920
+#: ../just_watch_series.py:1108
 msgid ""
 "R\n"
 "e\n"
@@ -127,47 +135,48 @@ msgstr ""
 "e\n"
 "n"
 
-#: just_watch_episodes.py:555 just_watch_episodes.py:767
-#: just_watch_episodes_helper.py:443 just_watch_movie.py:1016
-#: just_watch_series.py:1202
+#: ../just_watch_episodes.py:431 ../just_watch_episodes.py:635
+#: ../just_watch_episodes_helper.py:318 ../just_watch_movie.py:861
+#: ../just_watch_series.py:1042
 msgid ""
-"B\n"
-"u\n"
-"y"
-msgstr ""
-"K\n"
-"a\n"
-"u\n"
-"f\n"
+"S\n"
+"t\n"
+"r\n"
 "e\n"
-"n"
+"a\n"
+"m"
+msgstr ""
+"S\n"
+"t\n"
+"r\n"
+"e\n"
+"a\n"
+"m"
 
-#: just_watch_movie.py:67 just_watch_series.py:69
-msgid "Actors:"
-msgstr "Schauspieler:"
+#: ../just_watch_config.py:30
+msgid "Settings"
+msgstr "Einstellungen"
 
-#: just_watch_movie.py:68 just_watch_series.py:70
+#: ../just_watch_episodes.py:39 ../just_watch_episodes_helper.py:38
+#: ../just_watch_movie.py:47 ../just_watch_series.py:49
+msgid "There are currently no offers."
+msgstr "Derzeit liegen keine Angebote vor."
+
+#: ../just_watch_movie.py:68 ../just_watch_series.py:70
 msgid "Trailer:"
 msgstr "Trailer:"
 
-#: just_watch_movie.py:69 just_watch_series.py:71
-msgid "No trailer was found!"
-msgstr "Es wurde kein Trailer gefunden!"
+#: ../just_watch_episodes.py:42 ../just_watch_episodes_helper.py:41
+#: ../just_watch_movie.py:70 ../just_watch_series.py:74
+msgid "Unfortunately no description available at the moment."
+msgstr "Leider ist derzeit keine Beschreibung verfügbar."
 
-#: just_watch_movie.py:72 just_watch_series.py:76 just_watch_watchlist.py:41
-#: plugin.py:69
+#: ../just_watch_movie.py:72 ../just_watch_series.py:76
+#: ../just_watch_watchlist.py:37 ../plugin.py:68
 msgid "Watchlist"
 msgstr "Zur Watchlist hinzufügen"
 
-#: just_watch_movie.py:73 just_watch_series.py:77
-msgid "Add to Watchlist"
-msgstr "Zur Watchlist hinzufügen"
-
-#: just_watch_movie.py:74 just_watch_series.py:78
-msgid "Delete from Watchlist"
-msgstr "Aus Watchlist löschen"
-
-#: just_watch_movie.py:75 just_watch_series.py:79
+#: ../just_watch_movie.py:75 ../just_watch_series.py:79
 msgid ""
 "Watchlist mode error!\n"
 "Check login"
@@ -175,89 +184,22 @@ msgstr ""
 "Watchlist-Modus-Fehler!\n"
 "Überprüfen Sie die Anmeldung"
 
-#: just_watch_movie.py:77 just_watch_series.py:81
-msgid "Your selection has been added to the watchlist"
-msgstr "Ihre Auswahl wurde zur Watchlist hinzugefügt"
-
-#: just_watch_movie.py:78 just_watch_series.py:82
-msgid "Your selection has been deleted from the watchlist"
-msgstr "Ihre Auswahl wurde aus der Watchlist gelöscht"
-
-#: just_watch_movie.py:446 just_watch_movie.py:453 just_watch_movie.py:460
-#: just_watch_series.py:506 just_watch_series.py:513 just_watch_series.py:520
-msgid "Login failed"
-msgstr "Anmeldung fehlgeschlagen"
-
-#: just_watch_provider_config.py:33
-msgid "My streaming providers"
-msgstr "Meine Streaming-Anbieter"
-
-#: just_watch_series.py:72
-msgid " Season"
-msgstr " Staffel"
-
-#: just_watch_series.py:73
-msgid " Seasons"
-msgstr " Staffeln"
-
-#: plugin.py:67
+#: ../plugin.py:66
 msgid "Welcome to Just Watch"
 msgstr "Willkommen bei Just Watch"
 
-#: plugin.py:1256
-msgid "JustWatch streaming search"
-msgstr "JustWatch-Streaming-Suche"
+#: ../just_watch_movie.py:77 ../just_watch_series.py:81
+msgid "Your selection has been added to the watchlist"
+msgstr "Ihre Auswahl wurde zur Watchlist hinzugefügt"
 
-#~ msgid "Amazon-Settings"
-#~ msgstr "Amazon-Einstellungen"
+#: ../just_watch_movie.py:78 ../just_watch_series.py:82
+msgid "Your selection has been deleted from the watchlist"
+msgstr "Ihre Auswahl wurde aus der Watchlist gelöscht"
 
-#~ msgid "Netflix-Settings"
-#~ msgstr "Netflix-Einstellungen"
+#: ../just_watch_cache_config.py:183
+msgid "off"
+msgstr "aus"
 
-#~ msgid "All"
-#~ msgstr "Alle"
-
-#~ msgid "Movies"
-#~ msgstr "Filme"
-
-#~ msgid "Series"
-#~ msgstr "Serien"
-
-#~ msgid "Century"
-#~ msgstr "Jahr"
-
-#~ msgid "Reset"
-#~ msgstr "Zurücksetzen"
-
-#~ msgid "Login"
-#~ msgstr "Einloggen"
-
-#~ msgid "Log out"
-#~ msgstr "Ausloggen"
-
-#~ msgid "Please enter your account password"
-#~ msgstr "Bitte geben Sie Ihr Konto-Passwort ein"
-
-#~ msgid "Please enter your current account password"
-#~ msgstr "Bitte geben Sie Ihr aktuelles Konto-Passwort ein"
-
-#~ msgid "Account-E-mail-address"
-#~ msgstr "Konto-E-Mail-Adresse"
-
-#~ msgid "Back"
-#~ msgstr "Zurück"
-
-#~ msgid "Change account email address"
-#~ msgstr "E-Mail-Adresse für Konto ändern"
-
-#~ msgid "Change password"
-#~ msgstr "Passwort ändern"
-
-#~ msgid "Enter your email"
-#~ msgstr "Geben sie ihre Mail ein"
-
-#~ msgid "Enter your password"
-#~ msgstr "Geben sie ihr Passwort ein"
-
-#~ msgid "Login successful"
-#~ msgstr "Anmeldung erfolgreich"
+#: ../just_watch_cache_config.py:183
+msgid "on"
+msgstr "an"
